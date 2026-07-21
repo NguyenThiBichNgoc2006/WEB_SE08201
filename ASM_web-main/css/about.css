@@ -1,0 +1,167 @@
+body {
+            background-color: #fcf9f4; 
+        }
+
+         .about-hero {
+            background-color: #001529;
+            color: #ffffff;
+            height: 320px; 
+            text-align: center;
+            display: flex;
+            align-items: center; 
+            justify-content: center;
+}
+
+        .journey-dark-box {
+        background-color: #001529;
+        border-radius: 12px;
+        width: 100%;
+        max-width: 596px;
+        height: auto;
+        min-height: 176px;
+        padding: 20px 25px; 
+        color: #ffffff;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        justify-content: center; 
+}
+
+.pillar-card {
+    background-color: #ffffff;
+    width: 100%;
+    max-width: 384px;
+    height: auto;
+    min-height: 280px;
+    border-radius: 24px; 
+    padding: 40px;       
+    border: 1px solid rgba(0, 21, 41, 0.04);
+    border-bottom: 4px solid #e3001b !important; 
+    box-shadow: 0 4px 20px rgba(0,0,0,0.015);
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    transition: transform 0.2s ease;
+}
+.pillar-card:hover {
+    transform: translateY(-5px);
+}
+.pillar-icon-box {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    background-color: #fff0f1;
+    color: #e3001b;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    margin-bottom: 24px;
+}
+
+.taste-banner {
+    background-color: #e3001b; 
+    height: auto;
+    min-height: 120px;
+    position: relative;
+    overflow: hidden;
+    padding: 36px 0;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+}
+.taste-bg-text {
+    position: absolute;
+    font-size: 110px;          
+    font-weight: 900;
+    color: rgba(255, 255, 255, 0.22); 
+    white-space: nowrap;
+    top: 52%;
+    left: 45%;
+    transform: translate(-50%, -50%);
+    letter-spacing: 2px;
+    pointer-events: none;
+    user-select: none;
+    font-family: 'Arial Black', Impact, sans-serif;
+}
+.btn-view-menu {
+    background-color: #ffffff !important;
+    color: #e3001b !important;
+    font-weight: 700;
+    font-size: 11px;
+    letter-spacing: 0.5px;
+    border-radius: 20px !important;
+    padding: 10px 24px !important;
+    border: none !important;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+.btn-locate-store {
+    background-color: #001529 !important; 
+    color: #ffffff !important;
+    font-weight: 700;
+    font-size: 11px;
+    letter-spacing: 0.5px;
+    border-radius: 20px !important;
+    padding: 10px 24px !important;
+    border: none !important;
+}
+
+@media (max-width: 992px) {
+    .about-hero {
+        height: 260px;
+    }
+    .pillar-card {
+        padding: 28px;
+        min-height: 240px;
+    }
+    .taste-bg-text {
+        font-size: 80px;
+    }
+}
+
+@media (max-width: 768px) {
+    .about-hero {
+        height: 220px;
+    }
+    .journey-dark-box {
+        padding: 18px 20px;
+    }
+    .pillar-card {
+        padding: 22px;
+        border-radius: 16px;
+        min-height: auto;
+    }
+    .pillar-icon-box {
+        margin-bottom: 16px;
+    }
+    .taste-banner {
+        padding: 28px 0;
+        text-align: center;
+        flex-direction: column;
+    }
+    .taste-bg-text {
+        font-size: 60px;
+    }
+    .btn-view-menu,
+    .btn-locate-store {
+        padding: 8px 18px !important;
+        font-size: 10px;
+    }
+}
+
+@media (max-width: 576px) {
+    .about-hero {
+        height: 180px;
+    }
+    .pillar-card {
+        padding: 18px;
+        border-radius: 12px;
+    }
+    .taste-banner {
+        padding: 22px 0;
+    }
+    .taste-bg-text {
+        font-size: 44px;
+    }
+}
