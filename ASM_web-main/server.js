@@ -45,18 +45,33 @@ app.use('/api/contacts', contactRoutes);
 
 
 const multer = require('multer');
-const storage = multer.diskStorage({
-    destination: (req, file, cb) => cb(null, path.join(__dirname, 'assets/images')),
-    filename:    (req, file, cb) => {
-        const safe = Date.now() + '-' + file.originalname.replace(/[^a-zA-Z0-9.\-_]/g, '_');
-        cb(null, safe);
-    }
+const cloudinary = require('cloudinary').v2;
+const { CloudinaryStorage } = require('multer-storage-cloudinary');
+
+cloudinary.config({
+    cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+    api_key: process.env.CLOUDINARY_API_KEY,
+    api_secret: process.env.CLOUDINARY_API_SECRET
 });
-const upload = multer({ storage, limits: { fileSize: 5 * 1024 * 1024 } });
+
+const storage = new CloudinaryStorage({
+    cloudinary: cloudinary,
+    params: {
+        folder: 'asm_web_images',
+        allowedFormats: ['jpg', 'png', 'jpeg', 'webp'],
+        public_id: (req, file) => {
+            const originalName = file.originalname.split('.')[0];
+            return Date.now() + '-' + originalName.replace(/[^a-zA-Z0-9.\-_]/g, '_');
+        },
+    },
+});
+
+const upload = multer({ storage: storage, limits: { fileSize: 5 * 1024 * 1024 } });
 app.post('/api/upload', upload.single('image'), (req, res) => {
     if (!req.file) return res.status(400).json({ message: 'Không có file nào được tải lên' });
-    res.json({ url: `/assets/images/${req.file.filename}` });
+    res.json({ url: req.file.path });
 });
+
 
 
 mongoose.connect(process.env.MONGODB_URI, {
