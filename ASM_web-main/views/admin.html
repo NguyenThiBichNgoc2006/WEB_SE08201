@@ -662,8 +662,7 @@
                 allOrders = await ordersRes.json() || [];
 
                 // Load saved messages from localStorage (demo)
-                allMessages = JSON.parse(localStorage.getItem('adminMessages') || '[]');
-
+                await loadMessages();
                 updateStats();
                 renderOverviewProducts();
 
